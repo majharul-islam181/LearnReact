@@ -1,3 +1,4 @@
+import Objects from "./components/Objects";
 import Props from "./components/Props";
 import Props2 from "./components/Props2";
 import Temp1 from "./components/Temp1";
@@ -19,6 +20,13 @@ const App = () => {
   const city = ["Dhaka", "Bogura", "khulna"];
   let ternaryOperator = true;
   let conditonalRendaring = true;
+
+  const objectData = {
+    "name" : "Majharul Islam",
+    "age" : 15,
+    "city" : "Dhaka"
+
+  }
   return (
     <div>
 
@@ -88,6 +96,19 @@ const App = () => {
 
           <Props title="PROPPS" des="this is first time  props learing"/>
           <Props2 time= { new Date().getTime()}/>
+
+
+
+          {/* PROPS - Passing with Object data  */}
+
+          <h3>Passing with Object data: </h3>
+
+          <Objects items={objectData}/>
+
+
+        
+
+
 
 
 

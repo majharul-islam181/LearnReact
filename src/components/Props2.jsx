@@ -1,5 +1,4 @@
 
-
 const Props2 = (majharul) => {
     return (
         <div>
