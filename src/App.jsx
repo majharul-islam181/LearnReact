@@ -1,4 +1,5 @@
 import Props from "./components/Props";
+import Props2 from "./components/Props2";
 import Temp1 from "./components/Temp1";
 
 const LoginStatusBtn =(status)=>{
@@ -86,6 +87,7 @@ const App = () => {
           */}
 
           <Props title="PROPPS" des="this is first time  props learing"/>
+          <Props2 time= { new Date().getTime()}/>
 
 
 
