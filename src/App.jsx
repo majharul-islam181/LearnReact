@@ -1,7 +1,8 @@
-import Objects from "./components/Objects";
-import Props from "./components/Props";
-import Props2 from "./components/Props2";
+import Objects from "./props/Objects";
+import Props from "./props/Props";
+import Props2 from "./props/Props2";
 import Temp1 from "./components/Temp1";
+import FunctionPassing from "./props/FunctionPassing";
 
 const LoginStatusBtn =(status)=>{
   if(status){
@@ -27,6 +28,13 @@ const App = () => {
     "city" : "Dhaka"
 
   }
+
+
+  const funPassingBtn = () =>{
+    alert('Say hello to you!')
+  }
+
+
   return (
     <div>
 
@@ -104,6 +112,14 @@ const App = () => {
           <h3>Passing with Object data: </h3>
 
           <Objects items={objectData}/>
+
+
+          {/* PROPS - Passing function */}
+
+          <h3>Passing Function - Props : </h3>
+
+          <FunctionPassing btnPassing= {funPassingBtn} />
+
 
 
         
