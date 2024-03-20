@@ -74,6 +74,22 @@ const App = () => {
           }
 
 
+          {/* PROPS : Properites
+
+          1.  Props diye parent theke child e data pass korte pari.
+          2. Data basically UNI-DIRECTIONAL flow te kaj kore. that means only PARENTS --> CHILD e data pass hobe. 
+          3. For example:  PARENT will be APP.jsx is parent then inside this APP.jsx all components will be child
+          4. Props data is read-only/emutable. which means  that data coming form the parent 
+          should not be changed by child components.
+          
+          
+          
+          
+          
+          
+          */}
+
+
 
 
 
