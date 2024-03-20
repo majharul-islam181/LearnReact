@@ -1,3 +1,4 @@
+import Props from "./components/Props";
 import Temp1 from "./components/Temp1";
 
 const LoginStatusBtn =(status)=>{
@@ -81,13 +82,12 @@ const App = () => {
           3. For example:  PARENT will be APP.jsx is parent then inside this APP.jsx all components will be child
           4. Props data is read-only/emutable. which means  that data coming form the parent 
           should not be changed by child components.
-          
-          
-          
-          
-          
-          
+        
           */}
+
+          <Props title="PROPPS" des="this is first time  props learing"/>
+
+
 
 
 
