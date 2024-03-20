@@ -24,7 +24,7 @@ const App = () => {
 
 
 
-{/* Immediatley Invoked function */}
+{/* Immediatley Invoked function  == Automatic run hobe, app start howyar sathe sathe*/}
       {(
         ()=>{
           if(marks >= 90 && marks<=100){
@@ -36,6 +36,8 @@ const App = () => {
         }
       )()}
 
+
+     
 {/* JCX Loop Inside */}
           <ol>
             {
@@ -60,9 +62,15 @@ const App = () => {
             ternaryOperator ? <h1> TernaryOperator is false</h1> : <h1>TernaryOperator is true</h1>
           }
 
+          {/* Conditional Rendaring */}
+
+
+          <h3>Conditonal Rendaring : </h3>
 
           {
-            
+        
+        conditonalRendaring && <button> conditional Rendaring button</button>
+
           }
 
 
