@@ -34,6 +34,11 @@ const App = () => {
     alert('Say hello to you!')
   }
 
+  const PostFromData =()=>{
+    event.preventDefault()
+    alert('Successfully Submitted')
+  }
+
 
   return (
     <div>
@@ -141,16 +146,15 @@ const App = () => {
               <button onClick={handleClick}> clicked me </button>
             )
           }
-      
-          
-          
-          
-          
-          
-          
-          
-          
           */}
+
+
+          {/* Form-Submit Event & Loading Prevent korbo kivbe */}
+
+          <form  onSubmit={PostFromData} >
+            <input placeholder="name" type="text" />
+            <button type="submit">Submit</button>
+          </form>
 
           
 
