@@ -3,7 +3,7 @@ import Props from "./props/Props";
 import Props2 from "./props/Props2";
 import Temp1 from "./components/Temp1";
 import FunctionPassing from "./props/FunctionPassing";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const LoginStatusBtn =(status)=>{
   if(status){
@@ -160,6 +160,28 @@ const App = () => {
   console.log(FormObj);
 
  }
+
+ //useEffect() Method
+
+//  useEffect(()=>{
+//   console.log("hello this is useEffect ")
+//  },[1])
+
+
+ //useEffect() with API  
+
+ let [data,setData] = useState();
+
+ useEffect(()=>{
+  fetch('https://jsonplaceholder.typicode.com/posts')
+  .then(res=>res.json())
+  .then(json=> setData(json))
+ },[])
+
+
+
+
+
 
 
 
@@ -409,8 +431,17 @@ const App = () => {
             <input onChange={()=>{InputChange('gender',"Male")}}  checked={FormObj.gender=="Male"} type="radio" name="gender" id="" /> Male <br />
             <input onChange={()=>{InputChange('gender',"Female")}}  checked={FormObj.gender == "Female"} type="radio" name="gender" id="" /> Female <br />
             <button>Submit</button>
-           </form>
-        
+           </form><br /><br />
+
+
+            {/* useEffect() */}
+            <h1>useEffect() Method:  </h1>
+
+            {/* normal useEffect() */}
+
+            {/* API calling with useEffect() */}
+            {JSON.stringify(data)}
+            
 
 
 
