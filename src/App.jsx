@@ -120,6 +120,40 @@ const App = () => {
 
           <FunctionPassing btnPassing= {funPassingBtn} />
 
+          {/* onClick function handling inside Button*/}
+
+          {/* 
+
+          1. <btn onClick={alert("you clicked me")}>clicked</btn>
+          2. <btn onClick={()=>{"you clicked me"}}>clicked</btn>
+          3. <button onClick={
+            function handleClick(){
+              alert("you clicked me")
+            }
+          }>clicked</button>
+
+          4. const App = ()=>{
+            function handleClick(){
+              alert("you clicked me")
+            }
+
+            return (
+              <button onClick={handleClick}> clicked me </button>
+            )
+          }
+      
+          
+          
+          
+          
+          
+          
+          
+          
+          */}
+
+          
+
 
 
         
