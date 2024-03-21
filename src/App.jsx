@@ -4,6 +4,10 @@ import Props2 from "./props/Props2";
 import Temp1 from "./components/Temp1";
 import FunctionPassing from "./props/FunctionPassing";
 import { useEffect, useRef, useState } from "react";
+import { BrowserRouter } from "react-router-dom";
+import Homepage from "./pages/Homepage";
+import Product from "./pages/Product";
+import Notfound from "./pages/Notfound";
 
 const LoginStatusBtn =(status)=>{
   if(status){
@@ -15,8 +19,9 @@ const LoginStatusBtn =(status)=>{
   }
 }
 
-
 const App = () => {
+
+
 
   let marks = 9 ;
   const city = ["Dhaka", "Bogura", "khulna"];
@@ -441,7 +446,19 @@ const App = () => {
 
             {/* API calling with useEffect() */}
             {JSON.stringify(data)}
+
+
+            {/* Routing */}
+
+            {/* <BrowserRouter>
+            <Routes>
             
+              <Route path='/homepage' element={<Homepage />}></Route>
+              <Route path='/product' element={<Product />}></Route>
+              <Route path='*' element={<Notfound />}></Route>
+            </Routes>
+            </BrowserRouter>
+             */}
 
 
 
