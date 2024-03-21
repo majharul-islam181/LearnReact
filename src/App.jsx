@@ -64,6 +64,41 @@ const App = () => {
 
   }
 
+  let headline = useRef()
+
+  const changes =()=>{
+
+    headline.current.classList.remove('text-danger')
+    headline.current.classList.add('text-success')
+
+  }
+
+  let number = useRef(0)
+
+  const numIncrease =()=>{
+   let value=  number.current++;
+   console.log(value)
+    
+  }
+
+
+  let ApiData =useRef(null);
+  let sData = useRef()
+
+
+  const getData = async() =>{
+  const response =  await fetch('https://dummyjson.com/products')
+  ApiData.current = await response.json()
+
+  }
+
+  const showData = ()=>{
+    sData.current.innerText = JSON.stringify(ApiData.current)
+
+  }
+
+
+
 
 
   return (
@@ -73,7 +108,7 @@ const App = () => {
 
 
 
-{/* Immediatley Invoked function  == Automatic run hobe, app start howyar sathe sathe*/}
+        {/* Immediatley Invoked function  == Automatic run hobe, app start howyar sathe sathe*/}
       {(
         ()=>{
           if(marks >= 90 && marks<=100){
@@ -87,7 +122,7 @@ const App = () => {
 
 
      
-{/* JCX Loop Inside */}
+          {/* JCX Loop Inside */}
           <ol>
             {
               city.map((items, i)=>{
@@ -198,7 +233,7 @@ const App = () => {
           <br />
 
 
-          {/* using useRef() can change image Attribute  */}
+          {/* using useRef() can change   IMAGE  Attribute  */}
           <img ref={myImg} src="https://placehold.co/600x400" alt="" />
           <button onClick={imgChange}>click this image</button>
           <br /> <br />
@@ -207,6 +242,24 @@ const App = () => {
           <input ref={(a)=>firstName=a} placeholder="first name" />
           <input  ref={(b)=>lastName=b} placeholder="last name" />
           <button onClick={gettingValue}>Submit</button>
+
+          {/* using useRef() add css class remove css class*/}
+          <h1 className="text-danger" ref={headline} >This is css class will changed by useRef()</h1>
+          <button onClick={changes}>Do change</button>
+
+          {/* using useRef() create Persisted Mutable Values */}
+          
+          <button  onClick={numIncrease}>click</button><br />
+
+           {/* using useRef() Cashing expensive computations Like API Calling */}
+
+            <p ref={sData}></p>
+           <button onClick={getData}>Call Api</button>
+           <button onClick={showData}>Fetech Data</button>
+
+
+
+
 
 
 
