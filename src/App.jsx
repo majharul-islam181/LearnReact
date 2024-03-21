@@ -3,7 +3,7 @@ import Props from "./props/Props";
 import Props2 from "./props/Props2";
 import Temp1 from "./components/Temp1";
 import FunctionPassing from "./props/FunctionPassing";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const LoginStatusBtn =(status)=>{
   if(status){
@@ -98,6 +98,52 @@ const App = () => {
   }
 
 
+  // const [num, updatNum] = useState(1)
+
+
+
+
+  const [mydata, updateMydata] = useState(
+    {
+      name: "majhrul",
+      age: 15,
+      city: "dahaka",
+    }
+  )
+
+  const changingData = ()=>{
+    updateMydata(
+      prevObject =>({
+        ...prevObject,
+        name: "Md. Majharul Islam"
+      })
+    )
+  }
+
+  //todo
+   const [list,setList] = useState([])
+   const [item,setItem] = useState("")
+
+
+ const AddToList = ()=>{
+  list.push(item)
+  setList([...list])
+
+ }
+
+ const RemoveItem =(index)=>{
+  list.splice(index, 1)
+  setList([...list])
+
+ }
+
+
+
+
+
+
+
+
 
 
 
@@ -158,6 +204,8 @@ const App = () => {
           }
 
 
+
+
           {/* PROPS : Properites
 
           1.  Props diye parent theke child e data pass korte pari.
@@ -167,6 +215,7 @@ const App = () => {
           should not be changed by child components.
         
           */}
+          <h1>Props:  </h1>
 
           <Props title="PROPPS" des="this is first time  props learing"/>
           <Props2 time= { new Date().getTime()}/>
@@ -225,7 +274,10 @@ const App = () => {
           
           */}
 
+          <h1>React Hook :  </h1>
+
           {/* useRef() Method*/}
+          <h3>useRef() Method :  </h3>
 
           {/* using useRef() can change innerText & innerHTML */}
           <h1 ref={RefMethodTesting}></h1>
@@ -258,6 +310,69 @@ const App = () => {
            <button onClick={showData}>Fetech Data</button>
 
 
+           {/* useState() Method */}
+
+           {/* when data changed component refresh automatically */}
+
+           <h1>useState() Method : </h1>
+
+           {/* 
+           const App =()=>{
+
+            const [num, updatNum] = useState(1)
+
+            return(
+              <div>
+              <h1>Number: {num}</h1>
+              <button onClick={()=>updateNumber(num+1)}> click</button>
+              </div>
+            
+             )
+            }     
+           */}
+
+
+           <h1>{mydata.name}</h1>
+           <button onClick={changingData}>Change the data</button><br /><br />
+
+
+
+           {/* TODO List  */}
+
+           <h1>TODO simple</h1>
+           
+           <table>
+            <tbody>
+              {
+
+                list.length == 0 ? <td></td> : (
+                  list.map((content, index)=>{
+                   return(
+                    <tr key={index}>
+                      <td>{content}</td>
+                      <td><button onClick={()=>{
+                        RemoveItem(index)
+                      }}>Remove</button></td>
+                    </tr>
+                 
+                   
+                   )
+                    
+
+                  })
+                )
+               
+              }
+            </tbody>
+           </table>
+           <input onChange={ (e)=>setItem(e.target.value)} placeholder="Enter text" />
+           <button onClick={AddToList}>Add item</button>
+        
+
+
+
+
+
 
 
 
@@ -280,7 +395,8 @@ const App = () => {
 
 
 
-     
+     <br /><br /><br />
+     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
       
     </div>
   );
