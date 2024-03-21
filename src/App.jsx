@@ -3,6 +3,7 @@ import Props from "./props/Props";
 import Props2 from "./props/Props2";
 import Temp1 from "./components/Temp1";
 import FunctionPassing from "./props/FunctionPassing";
+import { useRef } from "react";
 
 const LoginStatusBtn =(status)=>{
   if(status){
@@ -38,6 +39,31 @@ const App = () => {
     event.preventDefault()
     alert('Successfully Submitted')
   }
+
+  let RefMethodTesting = useRef();
+
+  const change = ()=>{
+    RefMethodTesting.current.innerText= "useRef() method testing"
+  }
+
+  let myImg = useRef();
+
+  const imgChange =()=>{
+    myImg.current.src= "https://placehold.co/600x400?text=Hello+World"
+    myImg.current.setAttribute('height', '200' )
+    myImg.current.setAttribute('width', '200' )
+  }
+
+  let firstName, lastName = useRef();
+
+  const gettingValue =()=>{
+    let fName = firstName.value;
+    let lName = lastName.value;
+
+    alert('first name : '+ fName+ "\nLast Name : "+ lName)
+
+  }
+
 
 
   return (
@@ -155,6 +181,36 @@ const App = () => {
             <input placeholder="name" type="text" />
             <button type="submit">Submit</button>
           </form>
+          <br />
+
+          {/* React Hook */}
+          {/* Hooks is used for -manage state - handle side effects
+          - access liftcycle methods 
+          #build-in hooks in react: useState, useEffect, useRef
+          
+          */}
+
+          {/* useRef() Method*/}
+
+          {/* using useRef() can change innerText & innerHTML */}
+          <h1 ref={RefMethodTesting}></h1>
+          <button onClick={change}>click</button>
+          <br />
+
+
+          {/* using useRef() can change image Attribute  */}
+          <img ref={myImg} src="https://placehold.co/600x400" alt="" />
+          <button onClick={imgChange}>click this image</button>
+          <br /> <br />
+
+          {/* using useRef() can Input Elements + Multiple useRef() */}
+          <input ref={(a)=>firstName=a} placeholder="first name" />
+          <input  ref={(b)=>lastName=b} placeholder="last name" />
+          <button onClick={gettingValue}>Submit</button>
+
+
+
+
 
           
 
