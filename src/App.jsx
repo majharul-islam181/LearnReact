@@ -138,6 +138,30 @@ const App = () => {
  }
 
 
+ //object form list
+
+ let [FormObj,setFormObj] = useState({
+  fName: "",
+  lname: "",
+  city: "",
+  gender:""
+ })
+
+ const InputChange =(properties, value)=>{
+  setFormObj(preObj=>({
+    ...preObj,
+    [properties] : value
+  }))
+
+ }
+
+ const FormSubmit =(e)=>{
+  e.preventDefault();
+  console.log(FormObj);
+
+ }
+
+
 
 
 
@@ -366,7 +390,26 @@ const App = () => {
             </tbody>
            </table>
            <input onChange={ (e)=>setItem(e.target.value)} placeholder="Enter text" />
-           <button onClick={AddToList}>Add item</button>
+           <button onClick={AddToList}>Add item</button><br /><br />
+
+
+
+           {/* Form */}
+           <h1>Todo with form : </h1>
+
+           <form onSubmit={FormSubmit} action="">
+
+            <input onChange={(e)=>{InputChange('fName',e.target.value)}} value={FormObj.fName} type="text" placeholder="Enter first name" /><br />
+            <input onChange={(e)=>{InputChange('lname',e.target.value)}} value={FormObj.lName} type="text" placeholder="Enter last name" /><br />
+            <select onChange={(e)=>{InputChange('city',e.target.value)}}  value={FormObj.city} >
+              <option value="">Choose City</option>
+              <option value="Dhaka">Dhaka</option>
+              <option value="Rangpur">Rangpur City</option>
+            </select><br />
+            <input onChange={()=>{InputChange('gender',"Male")}}  checked={FormObj.gender=="Male"} type="radio" name="gender" id="" /> Male <br />
+            <input onChange={()=>{InputChange('gender',"Female")}}  checked={FormObj.gender == "Female"} type="radio" name="gender" id="" /> Female <br />
+            <button>Submit</button>
+           </form>
         
 
 
